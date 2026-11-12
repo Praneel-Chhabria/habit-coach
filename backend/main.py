@@ -32,3 +32,6 @@ async def lifespan(app):
 
 app = FastAPI(title="Habit Coach", lifespan=lifespan)
 app.include_router(router)
+@app.get("/health")
+async def health():
+    return {"status": "ok"}
